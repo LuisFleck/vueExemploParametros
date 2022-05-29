@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-TEXT</title>
+</head>
+<body>    
+    <div id="directives">   
+
+        <div v-html="headerHTML"></div>
+        <p> cuidado com v-html pode ser invadido por ataque  XSS</p>
+</div>    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+<script>
+
+    let app = new Vue ({
+        el: '#directives',
+         data: {
+            headerHTML:`
+            <header>
+                <img src="./assets/logo.png" style="margin: auto 30%;"></img>
+                <h1  style="text-align: center;"> ONG TOUT - TODOS PELO MELHOR</h1>
+            </header> 
+                `
+        }
+    })
+   </script>
+
+</body>
+</html>

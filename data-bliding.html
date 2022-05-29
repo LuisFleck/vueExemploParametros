@@ -6,32 +6,3 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passagen de dados</title>
 </head>
-<body>
-    <div id="data_binding">
-        <h1 v-bind:title="tagMessage"> {{message}} </h1>
-    
-        <h2>o Modo de passar por toUpperCase {{message.toUpperCase()}}</h2>
-     <p> Vem por como? por  {{person.name}}. O numero : {{person.age}} vem por parametro</p> 
-   
-    <span v-html="tag"></span> 
-    <!-- diretiva para passar paramentro -->
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
-<script>
-
-    let app = new Vue ({
-        el: '#data_binding',
-        data: {
-            message: 'Titulo primeiro',
-            person:{
-                name: 'Parametro',
-                age: '20'
-            },
-            tag: '<button>Clique Aqui</button>',
-            tagMessage:' aviso que é o titulo quando passa o mouse'
-           
-        }
-    })
-</script>
-</body>
-</html>

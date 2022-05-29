@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-TEXT</title>
+</head>
+<body>
+    <div id="directives">        
+        <h1 style="color: #2be234;">{{name}} usando chaves</h1>
+        <h4 style="color: #e22b3d;" v-text="name" ></h4> 
+</div>
+</br>
+    <p style="color: pink;"> usando o v-text nao acrescento palavas na tag como com chaves</p>
+</br>
+     <p> por debaixo dos panos o vue sempre chama o v-text para exibir a varival</p> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+<script>
+
+    let app = new Vue ({
+        el: '#directives',
+         data: {
+            name: 'Texto  '
+        }
+    })
+   </script>
+
+</body>
+</html>

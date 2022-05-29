@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Methodos em Vue.js</title>
+    <title>Methodos e V-if and v-else</title>
 </head>
 <body>
     <div id="methods">
         <h1 style="color: brown;"> Titulo em ingles por paramentro ---> {{message}} </h1>
-    <input type="text" placeholder="digite uma nova mensagem/type a new message"
-        v-on:blur="replaceMessage($event.target.value)">
-
-</div>
+            <input type="text" placeholder="digite uma nova mensagem/type a new message"
+            v-on:blur="replaceMessage($event.target.value)">
+    </br> 
+    <p>testar no console</p>
+</br>
+        <h2 v-if="show"> Testando pra ver se temos ingressos</h2>
+            <h3 key="available" v-if="tickets >= 50"> ha ingressos</h3>
+            <h3 key="almost" v-else-if="tickets >= 1"> resta 1</h3>
+            <h3 key="empty" v-else> Terminou</h3>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    
 <script>
 
     let app = new Vue ({
         el: '#methods',
-        data: {
+         data: {
             message: 'Title passed by parameter',
+            show: true,
+            tickets: 100
         },
         methods: { 
             reverseMessage: function(){
@@ -29,8 +38,12 @@
                 this.message =newMessage;
                 console.log(newMessage);
             }
+       
+       
         }
     })
+   
+
 </script>
 </body>
 </html>

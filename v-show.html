@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-show</title>
+</head>
+<body>
+    <div id="directives">        
+        <h4 style="color: blueviolet;"> V-Sho testando logou ou nao</h4>
+            <h1 v-show= "isLogged">Seja bem-vindo</h1>
+</div>
+</br>
+    <p style="color: pink;"> abra o console com f12, apos digite app.isLogged = false sumirá o texto</p>
+</br>
+     <p> V-IF apaga e o V-show mostra o v-show é mais rapido ele é renderizado</p> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+<script>
+
+    let app = new Vue ({
+        el: '#directives',
+         data: {
+            isLogged: true
+        }
+    })
+   </script>
+
+</body>
+</html>

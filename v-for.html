@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-TEXT</title>
+</head>
+<body>    
+    <div id="directives">   
+        <h2> Minhas cores</h2>
+        <ol>
+          <li v-for="color in colors">{{color}}</li> 
+       </ol> 
+       <h1>Cidades com v-for</h1>
+       <ol>
+        <li v-for="item in cities" style="color: red ;">{{item.city}} - {{item.state}}</li>
+    </ol>
+    <h2> Grandes Bandas com index do array</h2>
+
+    <ol>
+        <li v-for="(singer, index) in singers" style="color: rgb(0, 13, 255) ;"> {{index}} - {{singer}} </li>
+    </ol>
+    <h3>Empresa  com objeto</h3>
+    <p v-for="(value, key, index) in company"> {{key}} : {{value}} : {{index}}</p>
+</div>    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+<script>
+
+    let app = new Vue ({
+        el: '#directives',
+         data: {
+            colors:['verde', 'azul', 'preto', 'cinza'],
+            
+            cities:[{
+                city: 'Porto Alegre',
+                state: 'Rio Grande do Sul'
+            }, {
+                city: 'Florianopolis',
+                state: 'Santa Catarina'
+            },{
+                city: 'Curitiba',
+                state: 'Parana'
+            }],
+            singers:['Spice Girls', 'Hanson', 'U2'],
+            company:{
+                name: 'TESTE EMPRESA',
+                year: 2020,
+                creator: 'fulano'
+            
+            }
+         }
+       
+    })
+   </script>
+
+</body>
+</html>

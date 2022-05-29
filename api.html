@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Modulo</title>
+</head>
+<body>
+    <div id="api">
+        <h1>Relação das Siglas e nomes dos Estado do Brasil usando a {{name}} </h1>
+        <ul>
+            <!-- state in states passar variavel por variavel  nome ou sigla conforme campo na api-->
+            <li v-for="state in states"> Sua Sigla * {{ state.sigla }} * seu nome---{{state.nome}} </li>
+        </ul>
+    
+        <h1 style="color: brown;"> Obrigado  ---> {{message}} </h1>
+    <input  size="50" type="text" placeholder="Seu nome"
+        v-on:blur="replaceMessage($event.target.value)"/><button>Alterar</button>
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+<script>
+
+    let app = new Vue ({
+        el: '#api',
+        data: {
+            name: 'API DO IBGE',
+            states:[],
+            message: 'Seu nome é:',
+        },
+        methods: { 
+            reverseMessage: function(){
+                this.message =this.message.split('').reverse().join('');
+            },
+            replaceMessage(newMessage){
+                this.message =newMessage;
+                console.log(newMessage);
+            }
+        },
+        created(){
+            fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+            .then(response => {
+                response.json().then(data => {
+                    this.states = data;
+                })
+
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+                             
+    })
+    
+</script>
+</body>
+</html>
