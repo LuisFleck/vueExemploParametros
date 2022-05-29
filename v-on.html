@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on filtrar dinamicamente</title>
+</head>
+<body style="background-color: rgb(227, 202, 241);">    
+   
+    <div id="directives">   
+        <p v-on:click ="reverseMessage"> {{message}} </p>
+        <p v-on:[eventname] ="reverseMessage"> {{message}} </p>
+        <!-- colocar no console app.eventname ='bdlclick' ou mouseenter ficara dois click -->
+       <hr>
+       <input type="text" placeholder="Filtrar pessoas"v-on:keyup="filterPersons">
+        <ul>
+           <li v-for="person in personsFiltred">{{ person}}</li>
+       </ul>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+<script>
+
+    let app = new Vue ({
+        el: '#directives',
+         data: {
+          message: 'Vamos nestawewew',
+          eventname: 'click',
+          persons:[ 'Luis', 'Pati', 'karla', 'katia', 'Catia', 'Catiaz'],
+          personsFiltred:[]
+        //   necessario o array vazio para nao perder nada
+         },
+         methods:{
+             reverseMessage(){
+                 this.message = this.message.split('').reverse().join('');
+              },
+              filterPersons(event){
+                 this.personsFiltred= this.persons.filter(name=>{
+                     return name.toUpperCase().includes(event.target.value.toUpperCase());
+                    //  garantir que todos sejam buscados
+                 })
+              }
+         },
+         created(){
+             this.personsFiltred = this.persons;
+             //o que tiver criado não se perde
+         }
+    })
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+</head>
+<body style="background-color: rgb(147, 245, 188);">    
+    <div id="directives" >   
+        <h3 v-bind:style=" { fontSize: textSize + 'px' }">Tamanho não suporta o - por isso coloca a segunda letra maisucla </h3>
+        <input type="text" placeholder="Digite o tamanho do texto" v-model="textSize">
+        <h3 v-bind:style=" { color: textColor}">A cor muda  </h3>
+        <input type="text" placeholder="Digite a cor em ingles" v-model="textColor">
+        <!-- V-MODEL ALTERA O TAMANHO, TORNANDO MAIS INTERATIVO -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+<script>
+
+    let app = new Vue ({
+        el: '#directives',
+         data: {
+           textSize: 40,
+           textColor: 'red'
+           
+         }
+    })
+   </script>
+
+</body>
+</html>
