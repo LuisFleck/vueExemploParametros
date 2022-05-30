@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <title>v-cloakpara carregar</title>
+</head>
+   
+    <div id="directives">   
+        <h1 v-cloak> {{ message }} </h1> 
+        <!-- //colocar linha 7 para funcionar  -->
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+<script>
+
+    Vue.component('text-component', { 
+         template: `
+                <div>
+                    <header><slot name="header"></slot>
+                        </header>
+                    <p ><slot name="paragrafo"></slot></p>
+                </div>  
+                `
+    })
+
+    setTimeout(()=>{ //faz a execução levar 1,5 segundo
+    let app = new Vue ({
+        el: '#directives',
+         data: {
+            message: 'teste'
+         }
+    })
+}, 1500)
+   </script>
+
+</body>
+</html>
